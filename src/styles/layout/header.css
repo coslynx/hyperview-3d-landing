@@ -1,0 +1,72 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+*   src/styles/layout/header.css - Provides layout styles for the Header.tsx, including the theme toggle and navigation items.
+*/
+
+/* 1. Base Header Styles */
+header {
+  @apply bg-white dark:bg-gray-800; /* Theming, white to dark gray */
+  @apply text-gray-800 dark:text-gray-200; /* Text color change */
+  @apply py-4 shadow-md; /* Structure and prominence  */
+  @apply sticky top-0 z-10; /* Always visible in scroll, over content*/
+  font-family: 'Inter', sans-serif;
+}
+
+/* 2. Container and Alignment */
+header > div {
+  @apply container mx-auto flex items-center justify-between; /* Wide screen, align inline */
+}
+
+/* 3. Title/Branding */
+header a {
+  @apply text-2xl font-bold; /* Prominent brand font text */
+}
+
+/* 4. Navigation Menu */
+nav ul {
+  @apply flex space-x-6; /* Distribution of items in menu */
+  touch-action: manipulation; /* Enable scrolling for displays without mouse */
+}
+
+nav ul li a {
+  @apply hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200; /* Text color + hover*/
+}
+
+/* 5. Theme Toggle Button */
+header button {
+  @apply p-2 rounded-full; /* Padded button shape*/
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700; /* Interactive state */
+  @apply transition-colors duration-200; /* Animation for toggle */
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 dark:focus:ring-offset-gray-800; /* Focused */
+}
+
+/* 6. Theme Toggle Icons */
+header button svg {
+  @apply h-6 w-6; /* Size */
+}
+
+/*7. Responsiveness Adjustments */
+@media (max-width: 768px) {
+  header > div {
+    @apply flex-col items-center text-center; /* Content stack on small screen */
+  }
+
+  nav ul {
+    @apply flex-col space-x-0 space-y-2 mt-2; /* Menu List */
+  }
+
+  nav ul li {
+    @apply text-center; /* Center Nav*/
+  }
+}
+
+/* 8 Accessibility Adjustments */
+header button {\
+    touch-action: manipulation;\
+}
+header button[aria-label="Toggle Dark Mode"] {\
+    /* Add a specific style or class if needed */\
+}
