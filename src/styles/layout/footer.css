@@ -1,0 +1,63 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+*   src/styles/layout/footer.css - Provides layout styles for Footer.tsx, focusing on structure and theming
+*/
+
+/* 1. Base Footer Styles */
+footer {
+  @apply relative py-6; /* Vertical padding, relative positioning */
+  @apply bg-white dark:bg-gray-900; /* Theme-aware background */
+  @apply text-gray-600 dark:text-gray-300; /* Theme-aware text color */
+  font-family: 'Inter', sans-serif; /* Base font */
+}
+
+/* 2. 3D Background Container (if applicable) */
+footer > div:first-child {
+  @apply absolute inset-0 overflow-hidden; /* Full cover and hidden overflow */
+}
+
+/* 3. Main Content Container */
+footer > div:last-child {
+  @apply container mx-auto relative z-10 flex items-center justify-between;
+  /* Centralized container, bringing to front and centering */
+}
+
+/* 4. Copyright Text */
+footer p {
+  @apply text-sm; /* Adjust if needed, but maintain readability */
+}
+
+/* 5. List of Legal Links */
+footer ul {
+  @apply flex space-x-4; /* Apply spacing with a flex container */
+}
+
+footer ul li a {
+  @apply text-gray-500 hover:text-gray-300 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200;
+  /* Responsive, themeable link styles */
+}
+
+/* Accessibility Adjustments */
+footer a:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-1 dark:ring-offset-gray-900;
+  /* Better-defined focus state */
+}
+
+/* Touch action for Mobile, to avoid user scrolling with one finger on 3D */
+canvas {
+    touch-action: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer > div:last-child {
+    @apply flex-col items-center text-center;
+  }
+
+  footer p {
+    @apply mb-2; /* Stacked styling */
+  }
+}
