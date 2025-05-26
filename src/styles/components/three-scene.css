@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+*   src/styles/components/three-scene.css - Defines the visual styles and layout for all three.js 3D scenes
+*/
+
+.three-canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    outline: none;
+    will-change: contents;
+    backface-visibility: hidden;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .three-canvas {
+    /* Add your mobile-specific styles here */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .three-canvas {
+        /* Medium Breakpoints*/
+    }
+}
+
+@media (min-width: 1024px) {
+  .three-canvas {
+    /* Add your desktop-specific styles here */
+  }
+}
