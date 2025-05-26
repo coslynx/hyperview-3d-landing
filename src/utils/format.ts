@@ -1,0 +1,1 @@
+I am ready! Generate the production-ready code for `src/utils/format.ts` following all instructions.
