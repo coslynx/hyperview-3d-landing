@@ -1,0 +1,99 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+*   src/styles/components/landing-hero.css - Provides layout, typography, and 3D integration styles for LandingHero component
+*/
+
+/* 1. Base styles for the entire hero section */
+.landing-hero {
+  @apply relative overflow-hidden; /* Container and hidden overflow for dynamic backgrounds, 3D */
+}
+
+/* 2. Linear gradient overlays for a sense of depth and focus; ensure contrast, but avoid excessive brightness or darkness, meeting 4.5:1 contrast ratios. */
+.landing-hero::before,
+.landing-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Ensures these overlays are above the canvas */
+  pointer-events: none; /* Clickthrough */
+}
+
+/* Light overlay with dynamic transparency */
+.landing-hero::before {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.5) 100%);
+}
+
+/* Dark overlay; ensure visibility and prevent transparency from washing out the whole image */
+.landing-hero::after {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Restrict the area with 3D */
+.landing-hero .container {
+  @apply relative z-10; /* Ensures content is above overlays */
+}
+
+/* Main text styling  */
+.landing-hero h1 {
+  @apply text-4xl font-bold mb-4 leading-tight; /* Large and readable headline with enough line height. */
+}
+
+/* Text and description styling */
+.landing-hero p {
+  @apply text-lg mb-8 text-gray-700 dark:text-gray-300; /* Subtly styled to contrast with theme. */
+}
+
+/* Set properties on button */
+.landing-hero .button {
+  @apply inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200;
+}
+
+/* Adaptive font rules */
+@media (min-width: 768px) {
+  .landing-hero h1 {
+    @apply text-5xl; /* Enhanced */
+  }
+
+  .landing-hero p {
+    @apply text-xl; /* Enhanced */
+  }
+}
+
+/* Base style with the 3D model */
+.landing-hero canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform; /* Improved rendering */
+    backface-visibility: hidden; /* Improved rendering */
+    outline: none; /* Reset canvas borders that could interfere. */
+    touch-action: none; /* Improve responsiveness for devices, as we manage actions directly */
+    filter: blur(0.3px); /* Visual to remove visual elements*/
+    z-index: 1; /* Position the canvas below the content */
+}
+
+/* Scene adjustments and modifications */
+.sceneContainer > * {
+  @apply rounded-lg;
+  background: rgba( 255, 255, 255, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/* Ensure responsive adjustment by viewport */
+@media (max-width: 768px) {
+    .landing-hero .three-canvas {
+        height: 300px;
+    }
+}
