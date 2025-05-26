@@ -1,0 +1,43 @@
+.model-showcase-page {
+  @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-8;
+}
+
+.model-showcase-page .container {
+  @apply mx-auto py-8;
+}
+
+.model-showcase-page h1 {
+  @apply text-3xl font-semibold mb-4;
+}
+
+.model-showcase-page ul {
+  @apply grid gap-4 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.model-item {
+  @apply relative;
+}
+
+.model-item > div:first-child {
+    @apply relative;
+}
+
+.model-item:hover {
+    @apply transition-shadow duration-300 shadow-lg;
+}
+
+.model-item > div:last-child {
+  @apply mt-2;
+}
+
+.model-item h3 {
+  @apply text-lg font-medium;
+}
+
+.model-item p {
+  @apply text-sm text-gray-500;
+}
+
+.model-item a {
+  @apply inline-block mt-2 text-blue-500 hover:underline;
+}
