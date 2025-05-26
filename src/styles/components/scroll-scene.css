@@ -1,0 +1,32 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Full viewport, hiding overflow to avoid scrollbars */
+.scroll-scene {
+  @apply relative overflow-hidden;
+}
+
+/* Place the Three.js Canvas behind the 2D content and apply visual effects */
+.scroll-scene > canvas {
+  @apply absolute inset-0 z-0;
+  touch-action: pan-y; /* Allow touch scrolling */
+  will-change: transform; /* Hint to browser for optimization */
+  backface-visibility: hidden; /* Improve rendering */
+}
+
+/* Container with the 3d scene  */
+.scroll-scene > div{
+    @apply relative  w-full flex flex-col justify-center items-center h-screen;
+}
+
+/* Style text elements */
+.scroll-scene h1 {
+  @apply text-3xl font-bold text-center text-gray-800 dark:text-white;
+}
+
+@media (min-width: 768px) {
+  .scroll-scene > canvas {
+    /* Added more specific breakpoint code here if needed */
+  }
+}
