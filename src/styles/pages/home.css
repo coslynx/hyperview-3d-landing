@@ -1,0 +1,83 @@
+.landing-hero {
+  @apply relative overflow-hidden;
+}
+
+.landing-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.5) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.landing-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.landing-hero .container {
+  @apply relative z-10;
+}
+
+.landing-hero h1 {
+  @apply text-4xl font-bold mb-4 leading-tight;
+}
+
+.landing-hero p {
+  @apply text-lg mb-8 text-gray-700 dark:text-gray-300;
+}
+
+.landing-hero .button {
+  @apply inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200;
+}
+
+@media (min-width: 768px) {
+  .landing-hero h1 {
+    @apply text-5xl;
+  }
+
+  .landing-hero p {
+    @apply text-xl;
+  }
+}
+
+/*
+ *  Hero with 3D integrations optimizations
+ */
+.landing-hero canvas {
+    position: absolute;
+    will-change: transform; /* Improved rendering */
+    backface-visibility: hidden; /* Improved rendering */
+    outline: none; /* Reset canvas borders that could interfere. */
+    touch-action: none; /* Improve responsiveness for devices, as we manage actions directly */
+    filter: blur(0.3px);
+}
+
+.sceneContainer > * {
+  @apply rounded-lg;
+  background: rgba( 255, 255, 255, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/**  Responsiveness adjustments - example
+@media (max-width: 768px) {
+    .landing-hero .three-canvas {
+        height: 300px;
+    }
+}
+**/
