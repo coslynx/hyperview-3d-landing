@@ -1,0 +1,67 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Style for the component container */
+.model-loader-container {
+  @apply relative flex justify-center items-center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style for the loading indicator */
+.model-loader-indicator {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  z-index: 10;
+}
+
+/* Style for the progress text */
+.model-loader-progress-text {
+  @apply text-sm text-gray-600 dark:text-gray-400 mt-2;
+}
+
+/* Style for the loading spinner */
+.model-loader-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500;
+}
+
+/* Style for the error message container */
+.model-loader-error-container {
+  @apply absolute top-0 left-0 w-full h-full flex justify-center items-center bg-red-100 dark:bg-red-900;
+  z-index: 10;
+}
+
+/* Style for the error message text */
+.model-loader-error-message {
+  @apply text-red-600 dark:text-red-400 font-bold text-center p-4;
+}
+
+/* Style for the 3D model container, ensuring it fills the available space */
+.model-loader-model-container {
+  @apply w-full h-full;
+}
+
+/* Styles related to a11y */
+.model-loader-a11y-desc {
+  @apply sr-only;
+}
+
+/* Responsive Adaptations */
+@media (max-width: 768px) {
+  .model-loader-progress-text {
+    @apply text-xs; /* Smaller text on smaller screens */
+  }
+}
+
+/* Keyframes for spinner animation with accessibility enhancements */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Set 3D Object inside the canvas */
+.three-object {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
