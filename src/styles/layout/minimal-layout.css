@@ -1,0 +1,27 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+*   src/styles/layout/minimal-layout.css - Provides layout styles to set basic formatting for header, footer, and main content sections for all pages using this layout.
+*/
+
+/* Root container */
+.minimal-layout {
+  @apply flex flex-col min-h-screen;
+  /* Ensure the layout takes up at least the full screen height */
+  background-color: white;
+  /* Default background color for light theme */
+  color: theme(colors.gray.800);
+  /* Default text color for light theme */
+
+  /* Dark mode styles */
+  dark:bg-gray-900;
+  dark:text-gray-200;
+}
+
+/* Main content area */
+.minimal-layout > main {
+  @apply container mx-auto py-8 flex-grow;
+  /* Center content horizontally, provide vertical padding, and allow the main area to grow and take up available space */
+}
